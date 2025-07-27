@@ -3,6 +3,7 @@ const COUNTRY_BLACKLIST =
   '-mexico -south -africa -ireland -singapore -netherlands -colombia -argentina -kenya -nigeria -malaysia ' +
   '-egypt -new -zealand -russia -italy -spain -sweden -norway -finland -denmark -belgium -portugal -switzerland ' +
   '-japan -china -south -korea -turkey -venezuela -peru -chile -costa -rica -czech -republic -hungary';
+// there are still lots of countries that will get past this filter. You could use some merge logic to include them all, if you are getting a lot of results from Seychelles and places like that. Otherwise this should be good enough.
 
 const US_LOCATION_WHITELIST = 
   '("US-based" OR "based in the US" OR "located in the United States" OR "located in the US" OR "work from US" OR ' +
