@@ -1,31 +1,23 @@
-const SEARCH_QUERY =
+const COUNTRY_BLACKLIST = 
+  '-india -canada -uk -united -kingdom -australia -philippines -pakistan -brazil -germany -france ' +
+  '-mexico -south -africa -ireland -singapore -netherlands -colombia -argentina -kenya -nigeria -malaysia ' +
+  '-egypt -new -zealand -russia -italy -spain -sweden -norway -finland -denmark -belgium -portugal -switzerland ' +
+  '-japan -china -south -korea -turkey -venezuela -peru -chile -costa -rica -czech -republic -hungary';
+
+const US_LOCATION_WHITELIST = 
+  '("US-based" OR "based in the US" OR "located in the United States" OR "located in the US" OR "work from US" OR ' +
+  '"remote US" OR "remote (US)" OR "must reside in US" OR "must be US-based" OR "US only" OR "United States only")';
+
+const BASE_SEARCH_QUERY =
   '("software engineer" OR developer OR "data engineer" OR "backend engineer" OR "platform engineer" OR ' +
   '"java engineer" OR SDET) AND ("supply chain" OR logistics OR retail OR ecommerce OR fulfillment OR ' +
   'transportation OR "warehouse management" OR "last mile" OR "inventory management" OR restaurant OR ' +
   'hospitality OR foodservice OR "point of sale" OR bar OR kitchen OR "hospitality tech" OR "restaurant tech") ' +
   'AND (Java OR "Spring Boot" OR Spark OR Airflow OR API OR Drools OR Streaming OR GCP OR "BigQuery" OR ' +
   'Selenium OR Kafka OR PubSub OR microservices OR Kubernetes OR CI/CD OR "data pipelines" OR "unit testing") ' +
-  'AND ("united states" OR USA) AND (remote OR "work from home" OR "work from anywhere") AND (' +
-  '("US-based" OR "based in the US" OR "located in the United States" OR "located in the US" OR "work from US" OR ' +
-  '"remote US" OR "remote (US)" OR "must reside in US" OR "must be US-based" OR "US only" OR "United States only") ' +
-  'OR (-afghanistan -albania -algeria -andorra -angola -antigua -argentina -armenia -australia -austria ' +
-  '-azerbaijan -bahamas -bahrain -bangladesh -barbados -belarus -belgium -belize -benin -bhutan -bolivia ' +
-  '-bosnia -botswana -brazil -brunei -bulgaria -burkina -burundi -cambodia -cameroon -canada -cape -central ' +
-  '-chad -chile -china -colombia -comoros -congo -costa -croatia -cuba -cyprus -czech -denmark -djibouti ' +
-  '-dominica -dominican -ecuador -egypt -el -equatorial -eritrea -estonia -eswatini -ethiopia -fiji -finland ' +
-  '-france -gabon -gambia -georgia -germany -ghana -greece -grenada -guatemala -guinea -guyana -haiti ' +
-  '-honduras -hungary -iceland -india -indonesia -iran -iraq -ireland -israel -italy -ivory -jamaica -japan ' +
-  '-jordan -kazakhstan -kenya -kiribati -korea -kosovo -kuwait -kyrgyzstan -laos -latvia -lebanon -lesotho ' +
-  '-liberia -libya -liechtenstein -lithuania -luxembourg -madagascar -malawi -malaysia -maldives -mali -malta ' +
-  '-marshall -mauritania -mauritius -mexico -micronesia -moldova -monaco -mongolia -montenegro -morocco ' +
-  '-mozambique -myanmar -namibia -nauru -nepal -netherlands -new -zealand -nicaragua -niger -nigeria -north ' +
-  '-norway -oman -pakistan -palau -panama -papua -paraguay -peru -philippines -poland -portugal -qatar ' +
-  '-romania -russia -rwanda -saint -samoa -san -sao -saudi -senegal -serbia -seychelles -sierra -singapore ' +
-  '-slovakia -slovenia -solomon -somalia -south -spain -sri -sudan -suriname -sweden -switzerland -syria ' +
-  '-taiwan -tajikistan -tanzania -thailand -timor -togo -tonga -trinidad -tunisia -turkey -turkmenistan ' +
-  '-tuvalu -uganda -ukraine -united -arab -uruguay -uzbekistan -vanuatu -venezuela -vietnam))';
+  'AND ("united states" OR USA) AND (remote OR "work from home" OR "work from anywhere")';
 
-// this list of countries is a bit excessive. It will probably cause jobs to be excluded from my results, if the role is explicly based in the US then a foreign country may be mentioned and still pass. 
+const SEARCH_QUERY = `${BASE_SEARCH_QUERY} AND (${US_LOCATION_WHITELIST} OR (${COUNTRY_BLACKLIST}))`;
 
 const EMAIL_TO = 'YOUR_EMAIL';
 const API_KEY = 'YOUR_GCP_PROJECT_API_KEY';
