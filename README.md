@@ -17,7 +17,7 @@ This Google Apps Script runs a powerful custom Google search query to find relev
 
 ## 🧠 Who It's For
 
-Ideal for backend developers, data engineers, and job seekers in technical roles (Java/Spring/GCP/etc.) looking for industry-specific, remote opportunities.
+Ideal for backend developers, data engineers, and job seekers in technical roles (Java/Spring/GCP/etc.) looking for industry-specific, remote opportunities. But anybody can alter it by changing the Custom Google Search to include other domains and changing the search string in the JS file to a boolean search that works for their purposes. 
 
 ---
 
